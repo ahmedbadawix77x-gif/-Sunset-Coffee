@@ -1,0 +1,619 @@
+:root {
+  /* تدرجات هادئة تجمع بين دفء القهوة وأناقة الطعام */
+  --main-gradient: linear-gradient(120deg, #6e4c2b 0%, #b68a63 45%, #e7caa5 100%);
+  --second-gradient: linear-gradient(120deg, #ae8d6f 0%, #7e5535 100%);
+  --shadow: 0 8px 32px 0 rgba(110, 76, 43, 0.15);
+  --radius: 18px;
+  --navbar-bg: #3b2415f6;           /* بني داكن مع شفافية بسيطة */
+  --navbar-text: #e7caa5;           /* بيج ذهبي راقي */
+  --section-bg: #fdf7f1f8;          /* بيج فاتح جداً */
+  --card-shadow: 0 8px 32px 0 rgba(110, 76, 43, 0.14);
+  --font-main: 'Cairo', 'Tajawal', 'Segoe UI', Arial, sans-serif;
+  --nav-hover-glow: 0 0 16px #ffe0a3, 0 0 32px #b68a63;
+  --nav-active-glow: 0 0 18px #ffefc3, 0 0 22px #b68a63;
+}
+
+/* --- استيراد خطوط عربية حديثة --- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700&display=swap');
+
+/* --- Reset & Body --- */
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background: linear-gradient(120deg, #f9f6f2 0%, #e7caa5 100%);
+  color: #5b4329;
+  direction: rtl;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Navbar --- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--navbar-bg);
+  box-shadow: 0 2px 8px #7e553544;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 66px;
+  font-family: 'Tajawal', var(--font-main);
+  backdrop-filter: blur(6px);
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: var(--navbar-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 1px;
+}
+
+/* --- Navbar Links with glowing hover --- */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links li a {
+  color: #f7e7cc;
+  font-size: 1.13rem;
+  font-weight: 500;
+  border-bottom: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+  transition: color 0.15s, box-shadow 0.23s, background 0.18s;
+  box-shadow: none;
+  background: transparent;
+  position: relative;
+}
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #fff8e5;
+  background: rgba(182, 138, 99, 0.18);
+  box-shadow: var(--nav-hover-glow);
+  /* تأثير إضاءة متوهج فقط بدون خط */
+  text-shadow: 0 0 8px #ffe0a3, 0 0 18px #b68a63;
+  /* زيادة حجم النص قليلا عند المرور */
+  transform: scale(1.09);
+}
+.nav-links li a.active {
+  box-shadow: var(--nav-active-glow);
+}
+
+/* --- زرار القائمة للموبايل --- */
+.nav-toggle {
+  display: none;
+  font-size: 1.7rem;
+  color: #e7caa5;
+  cursor: pointer;
+}
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  height: 58vh;
+  min-height: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius);
+  margin: 20px 18px 25px 18px;
+  box-shadow: var(--shadow);
+}
+
+/* الصورة */
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.92) blur(0.1px);
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 1;
+}
+
+/* طبقة تدرج شفافة فوق الصورة */
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  background: linear-gradient(
+    120deg,
+    rgba(110, 76, 43, 0.18) 0%,
+    rgba(182, 138, 99, 0.19) 45%,
+    rgba(231, 202, 165, 0.14) 100%
+  );
+  opacity: 0.51;
+}
+
+/* محتوى الهيرو */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+}
+
+/* عنوان الهيرو مع ظل وتوهج */
+.hero-title {
+  font-size: 2.7rem;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+  text-shadow: 0 4px 32px #7e553566, 0 2px 8px #ae8d6fa6;
+  font-family: 'Cairo', var(--font-main);
+  letter-spacing: 0.5px;
+}
+
+.shine {
+  display: inline-block;
+  background: linear-gradient(90deg, #fff8e5 40%, #e7caa5 60%, #fff8e5 100%);
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineMove 2.5s linear infinite;
+  text-shadow:
+    0 0 22px #fff7,
+    0 0 36px #e7caa5cc,
+    0 2px 18px #b68a63,
+    0 0 10px #b68a63;
+}
+@keyframes shineMove {
+  0% { background-position: 200% center; }
+  100% { background-position: 0% center; }
+}
+
+/* وصف الهيرو */
+.hero-desc {
+  font-size: 1.35rem;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 12px #ae8d6f5c;
+  font-family: 'Tajawal', var(--font-main);
+}
+
+/* --- About --- */
+.about-section {
+  margin: 30px auto 32px auto;
+  max-width: 700px;
+  background: var(--section-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 22px;
+  text-align: center;
+  font-family: 'Cairo', var(--font-main);
+}
+.about-section h2 {
+  margin-top: 0;
+  color: #7e5535;
+  font-size: 2rem;
+  font-family: 'Tajawal', var(--font-main);
+}
+
+.about-section p {
+  color: #775f4b;
+  font-size: 1.08rem;
+}
+
+/* --- Menu Section --- */
+.menu-section {
+  margin: 32px auto;
+  padding: 0 20px;
+}
+
+.menu-section h2 {
+  text-align: center;
+  background: var(--second-gradient);
+  color: #fff;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: var(--radius);
+  font-size: 2.1rem;
+  margin-bottom: 36px;
+  box-shadow: var(--shadow);
+  font-family: 'Tajawal', var(--font-main);
+}
+
+.menu-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+}
+
+.menu-card {
+  background: #f8f4efef;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  width: 240px;
+  transition: transform 0.25s, box-shadow 0.2s, opacity 0.5s;
+  cursor: pointer;
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  font-family: 'Tajawal', var(--font-main);
+}
+
+.menu-card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  transition: filter 0.3s, scale 0.3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 12px 36px 0 #e7caa522;
+}
+
+.menu-card:hover img {
+  filter: brightness(1.13) saturate(1.06);
+  scale: 1.06;
+}
+
+.menu-info {
+  padding: 14px 18px 18px 18px;
+}
+
+.menu-info h3 {
+  margin: 0 0 7px 0;
+  color: #7e5535;
+  font-family: 'Cairo', var(--font-main);
+}
+.menu-info p {
+  margin: 0;
+  color: #826d57;
+  font-size: 1rem;
+  font-family: 'Tajawal', var(--font-main);
+}
+
+.center-btn {
+  text-align: center;
+  margin: 30px 0 0 0;
+}
+.main-btn {
+  background: var(--main-gradient);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 11px 32px;
+  font-size: 1.08rem;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+  transition: background 0.2s, box-shadow 0.2s, scale 0.2s;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 12px;
+  font-family: 'Tajawal', var(--font-main);
+}
+.main-btn:hover {
+  background: var(--second-gradient);
+  scale: 1.06;
+}
+
+/* --- Testimonials --- */
+.testimonials-section {
+  background: var(--section-bg);
+  margin: 38px auto 30px auto;
+  border-radius: var(--radius);
+  max-width: 800px;
+  box-shadow: var(--shadow);
+  padding: 32px 24px;
+  text-align: center;
+  font-family: 'Cairo', var(--font-main);
+}
+.testimonials-section h2 {
+  color: #7e5535;
+  font-size: 2rem;
+  font-family: 'Tajawal', var(--font-main);
+}
+
+.testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.testimonial {
+  background: #f8f4efef;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 25px 14px 25px;
+  max-width: 240px;
+  min-width: 180px;
+  flex: 1;
+  color: #826d57;
+  font-size: 1.02rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.22s;
+  font-family: 'Tajawal', var(--font-main);
+}
+.testimonial:hover {
+  transform: scale(1.04) translateY(-7px);
+  box-shadow: 0 8px 32px 0 #e7caa522;
+}
+.testimonial i {
+  color: #b68a63;
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+.testimonial span {
+  color: #bfa774;
+  font-size: 0.94rem;
+  margin-top: 8px;
+}
+
+/* --- Contact Section --- */
+.contact-section {
+  background: var(--section-bg);
+  margin: 44px auto 30px auto;
+  border-radius: var(--radius);
+  max-width: 800px;
+  box-shadow: var(--shadow);
+  padding: 38px 28px;
+  text-align: center;
+  font-family: 'Cairo', var(--font-main);
+}
+.contact-section h2 {
+  color: #7e5535;
+  font-size: 2rem;
+  font-family: 'Tajawal', var(--font-main);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 390px;
+  margin: 0 auto 16px auto;
+}
+.contact-form input, .contact-form textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e7caa5;
+  font-size: 1.05rem;
+  outline: none;
+  font-family: 'Tajawal', var(--font-main);
+  background: #f8f4efef;
+  transition: border 0.2s;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  border: 1.5px solid #b68a63;
+}
+.contact-form button {
+  background: var(--main-gradient);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+  margin-top: 7px;
+  transition: background 0.2s, scale 0.2s;
+  cursor: pointer;
+  font-family: 'Tajawal', var(--font-main);
+}
+.contact-form button:hover {
+  background: var(--second-gradient);
+  scale: 1.04;
+}
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  font-size: 1.08rem;
+  color: #bfa774;
+  margin-top: 20px;
+  font-family: 'Tajawal', var(--font-main);
+}
+.contact-info i {
+  color: #b68a63;
+  margin-left: 8px;
+}
+
+/* --- زر Up --- */
+#backToTop {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  display: none;
+  background: var(--second-gradient);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 18px #b68a6344;
+  cursor: pointer;
+  z-index: 100;
+  transition: background 0.2s, scale 0.2s;
+}
+#backToTop:hover {
+  background: var(--main-gradient);
+  scale: 1.1;
+}
+
+/* --- Gallery Section --- */
+.gallery-section {
+  margin: 36px auto 30px auto;
+  max-width: 1200px;
+  padding: 0 18px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+.gallery-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: filter 0.22s, scale 0.22s;
+}
+.gallery-img:hover {
+  filter: brightness(1.1) saturate(1.1);
+  scale: 1.06;
+  box-shadow: 0 8px 24px 0 #e7caa522;
+}
+
+/* --- Fade-in Animation --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Page Header (Menu & Gallery) --- */
+.page-header {
+  text-align: center;
+  background: var(--main-gradient);
+  color: #fff;
+  padding: 36px 0 14px 0;
+  margin-bottom: 28px;
+  border-radius: var(--radius);
+  font-family: 'Cairo', var(--font-main);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .menu-gallery, .testimonials {
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+  }
+  .contact-info {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+}
+@media (max-width: 750px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+  }
+  .hero {
+    height: 32vh;
+    min-height: 170px;
+    margin: 4px 2px 12px 2px;
+  }
+  .about-section, .testimonials-section, .contact-section {
+    padding: 18px 7px;
+    margin: 14px 0 16px 0;
+  }
+  .page-header {
+    padding: 24px 0 8px 0;
+  }
+  .gallery-section {
+    padding: 0 2px;
+  }
+  .navbar {
+    padding: 0 8px;
+    height: 52px;
+  }
+  .logo {
+    font-size: 1.08rem;
+  }
+  .gallery-img {
+    height: 110px;
+  }
+  .menu-card {
+    width: 95vw;
+    max-width: 330px;
+  }
+}
+/* Navbar responsive */
+@media (max-width: 650px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 54px;
+    right: 0;
+    left: 0;
+    background: #3b2415fa;
+    box-shadow: 0 4px 12px #7e553544;
+    z-index: 99;
+    padding: 0;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+.logo-shine {
+  display: inline-block;
+  background: linear-gradient(90deg, #ffe8b3 10%, #e7caa5 30%, #b68a63 56%, #745230 80%, #ffe8b3 100%);
+  background-size: 400% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: logoShineMove 3s linear infinite;
+  text-shadow:
+    0 0 10px #fffbe7,
+    0 0 24px #e7caa599,
+    0 2px 8px #b68a6380;
+  transition: text-shadow 0.28s, filter 0.28s, box-shadow 0.28s;
+  cursor: pointer;
+}
+
+@keyframes logoShineMove {
+  0%   { background-position: 200% center;}
+  100% { background-position: 0% center;}
+}
+
+.logo-shine:hover {
+  filter: brightness(1.22) drop-shadow(0 0 14px #fffbe7) drop-shadow(0 0 24px #e7caa5);
+  text-shadow:
+    0 0 30px #fffbe7,
+    0 0 60px #ffe8b3,
+    0 2px 18px #e7caa5;
+  animation-duration: 1.3s; /* أسرع عند اللمس */
+}

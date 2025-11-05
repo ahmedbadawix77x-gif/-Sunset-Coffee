@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunset Coffee</title>
+  <link rel="icon" type="image/png" href="./Image/12121.png">
+  <link rel="apple-touch-icon" href="./Image/12121.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+    
+  <!-- Navbar ثابت -->
+<nav class="navbar">
+  <div class="logo">
+    <i class="fas fa-utensils"></i>
+    <span class="logo-shine">Sunset Coffee</span>
+  </div>
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+      <li><a href="menu.html"><i class="fas fa-bowl-food"></i> قائمة الطعام</a></li>
+      <li><a href="gallery.html"><i class="fas fa-image"></i> معرض الصور</a></li>
+      <li><a href="#testimonials"><i class="fas fa-comment-dots"></i> آراء العملاء</a></li>
+      <li><a href="#about"><i class="fas fa-store"></i> عن المطعم</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+    </ul>
+    <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+  </nav>
+
+  <!-- الهيدر الرئيسي -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <img src="./Image/10.jpg" alt="صورة رئيسية" class="hero-img" loading="lazy" />
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="shine">Welcome </span>
+      </h1>
+      <p class="hero-desc">عيش تجربة الطعم والمزاج في مكان واحد</p>
+    </div>
+  </header>
+
+  <!-- قسم عن المطعم -->
+  <section id="about" class="about-section fade-in">
+    <h2><i class="fas fa-store"></i> من نحن</h2>
+    <p>
+      مطعم وكافيه Sunset، نقدم لك أشهى المأكولات وأطيب المشروبات في جو عصري دافئ يجمع بين المتعة والمذاق.
+    </p>
+  </section>
+
+  <!-- قسم أشهر الأصناف -->
+  <section class="menu-section fade-in">
+    <h2><i class="fas fa-star"></i> أشهر الأصناف</h2>
+    <div class="menu-gallery">
+      <div class="menu-card">
+        <img src="./Image/class1.jpg" alt="طبق 1" loading="lazy"/>
+        <div class="menu-info">
+          <h3>ساندويتش كرواسون محشي</h3>
+          <p>ساندويتشين كرواسون مقرمشين: واحد بحم، جبنة، طماطم، وخس؛ والآخر بطماطم، أفوكادو، خيار، وخضار<p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="./Image/class2.jpg" alt="طبق 2" loading="lazy"/>
+        <div class="menu-info">
+          <h3>توست بالعسل مع آيس كريم كراميل.</h3>
+          <p>ترتيب مريح مع توست مغطى بعسل وكريمة وخضار، آيس كريم فانيلا مزين بكراميل ومكسرات، وعاء غرانولا فواكه، ومشروب قهوة مثلج متدرج</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="./Image/class3.jpg" alt="مشروب 1" loading="lazy"/>
+        <div class="menu-info">
+          <h3>توست فرنسي بالآيس كريم</h3>
+          <p>قطعتي توست فرنسي سميكة مغطاة بآيس كريم فانيلا ذائب وزعتر، بجانب كوب مشروب رغوي مزين ببريتزل، وشوكة لعبة على شكل توست</p>
+        </div>
+      </div>
+    </div>
+    <div class="center-btn">
+      <a href="menu.html" class="main-btn"><i class="fas fa-bowl-food"></i> شاهد كل القائمة</a>
+    </div>
+  </section>
+
+  <!-- قسم آراء العملاء -->
+  <section id="testimonials" class="testimonials-section fade-in">
+    <h2><i class="fas fa-comments"></i> آراء عملائنا</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <i class="fas fa-user-circle"></i>
+        <p>"مكان راقي والأكل طعمه فوق الممتاز!"</p>
+        <span>- محمود</span>
+      </div>
+      <div class="testimonial">
+        <i class="fas fa-user-circle"></i>
+        <p>"أفضل قهوة جربتها ومكان هادي جدًا."</p>
+        <span>- سارة</span>
+      </div>
+      <div class="testimonial">
+        <i class="fas fa-user-circle"></i>
+        <p>"خدمة ممتازة وسرعة في تقديم الطلبات."</p>
+        <span>- علي</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم التواصل -->
+  <section id="contact" class="contact-section fade-in">
+    <h2><i class="fas fa-envelope"></i> تواصل معنا</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="الاسم" required>
+      <input type="email" placeholder="البريد الإلكتروني" required>
+      <textarea placeholder="رسالتك" required></textarea>
+      <button type="submit"><i class="fas fa-paper-plane"></i> إرسال</button>
+    </form>
+    <div class="contact-info">
+      <div><i class="fas fa-phone"></i> 01011349165</div>
+      <div><i class="fab fa-whatsapp"></i> 01068572135</div>
+      <div><i class="fab fa-facebook"></i> Sunset</div>
+      <div><i class="fas fa-map-marker-alt"></i> القاهرة - مصر</div>
+    </div>
+  </section>
+
+  <!-- زر Up -->
+  <button id="backToTop" title="ارجع للأعلى"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="app.js"></script>
+</body>
+</html>
